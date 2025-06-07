@@ -1,7 +1,7 @@
 # Mega Arduino eDrum
 
 Interface gráfica para configuração e uso de baterias eletrônicas baseadas em Arduino Mega.
-p align="center">
+<p align="center">
   <img src="images/megaarduinoedrum.png" alt="Tela inicial do Mega Arduinog eDrum" width="500"/>
 </p>
 
