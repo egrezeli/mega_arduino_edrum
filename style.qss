@@ -1,0 +1,43 @@
+/* Substitui fontes ausentes por fontes disponíveis no macOS */
+* {
+    font-family: Helvetica, Arial;
+}
+
+/* Substitui a fonte Monospace por fontes monoespaçadas disponíveis no macOS */
+QTextEdit, QPlainTextEdit {
+    font-family: Menlo, Monaco, Courier, monospace;
+}
+
+/* Estilo para os botões de upload/download (setas) */
+QPushButton {
+    font-family: Helvetica, Arial;
+}
+
+/* Estilo específico para botões pequenos (setas) */
+QPushButton#pbUploadType, QPushButton#pbDownloadType,
+QPushButton#pbUploadNote, QPushButton#pbDownloadNote,
+QPushButton#pbUploadThresold, QPushButton#pbDownloadThresold,
+QPushButton#pbUploadScantime, QPushButton#pbDownloadScantime,
+QPushButton#pbUploadMasktime, QPushButton#pbDownloadMasktime,
+QPushButton#pbUploadRetrigger, QPushButton#pbDownloadRetrigger,
+QPushButton#pbUploadCurve, QPushButton#pbDownloadCurve,
+QPushButton#pbUploadCurveform, QPushButton#pbDownloadCurveform,
+QPushButton#pbUploadXtalk, QPushButton#pbDownloadXtalk,
+QPushButton#pbUploadXtalkgroup, QPushButton#pbDownloadXtalkgroup,
+QPushButton#pbUploadChannel, QPushButton#pbDownloadChannel,
+QPushButton#pbUploadGain, QPushButton#pbDownloadGain {
+    font-size: 16pt;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Estilo para o botão de atualizar MIDI */
+QToolButton#tbReloadmidi {
+    font-family: Helvetica, Arial;
+    font-size: 14pt;
+    text-align: center;
+}

@@ -1,0 +1,4 @@
+PyQt5>=5.15.0
+pyserial>=3.5
+python-rtmidi>=1.4.9
+psutil>=5.9.0
