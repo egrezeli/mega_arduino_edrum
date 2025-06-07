@@ -28,4 +28,15 @@ pins.ini
 
 # OS specific files
 .DS_Store
-Thumbs.db
+Thumbs.dbdev_tools/
+# Arquivos de documentação específicos
+docs/MIDI_SETUP.md
+docs/QVECTOR_FIX.md
+docs/error_fixes.md
+docs/snare_fix.md
+
+# Arquivos relacionados
+midi_fix_instructions.md
+mainwindow_fixed.py
+mainwindow.py.bak
+fluidsynth.py

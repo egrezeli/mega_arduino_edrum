@@ -89,4 +89,4 @@ Este projeto é distribuído sob a licença CC BY-NC-SA 3.0, a mesma do projeto 
 ## Créditos
 
 - Desenvolvimento original: Massimo Bernava
-- Adaptação para Python 3 e melhorias: Seu Nome
+- Adaptação para Python 3 e melhorias: Evandro Grezeli
