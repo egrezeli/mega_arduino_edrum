@@ -1,6 +1,9 @@
 # Mega Arduino eDrum
 
 Interface gráfica para configuração e uso de baterias eletrônicas baseadas em Arduino Mega.
+p align="center">
+  <img src="images/megaarduinoedrum.png" alt="Tela inicial do Mega Arduinog eDrum" width="500"/>
+</p>
 
 ## Sobre o projeto
 
@@ -15,11 +18,15 @@ Este projeto é um fork melhorado do [md-python-config-tool](https://github.com/
 - Sincronização bidirecional com o Arduino (recebe e envia configurações)
 - Botão para desabilitar todos os pinos de uma vez
 - Tratamento de erros aprimorado
-- Feedback visual para operações de longa duração
+- Feedback visual para operações de longa duração (agora os campos de configuração tem tooltip explicando suas funções)
 - Melhor organização do código e documentação
 - Correção de bugs da versão original
 - **Otimizações de latência** para resposta mais rápida dos pads
 - Comunicação serial otimizada para baixa latência
+- Log's em tempo real na aba "Tool" implementado (melhor depuração)
+![Função implementada na aba "Tool"](images/tool.png)
+- Painel informativo de nota MIDi enviada na aba monitor
+![Painel informativo na aba "Monitor"](images/monitor.png)
 
 ## Requisitos
 
