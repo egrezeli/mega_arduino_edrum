@@ -53,6 +53,9 @@ Para usuários Windows, pode ser necessário instalar o Visual C++ Build Tools p
 ```
 pip install python-rtmidi --no-build-isolation
 ```
+## Instalação no Windows
+
+Para usuários Windows, fornecemos um instalador automático. Consulte [README_WINDOWS.md](README_WINDOWS.md) para instruções detalhadas.
 
 ## Uso
 
