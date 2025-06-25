@@ -93,6 +93,10 @@ python main.py
 - Para obter a menor latência possível, consulte o arquivo [PERFORMANCE.md](docs/PERFORMANCE.md)
 - Configurações otimizadas da porta serial para reduzir latência
 
+## Roadmap
+
+Confira nosso [ROADMAP.md](ROADMAP.md) para ver as melhorias planejadas para futuras versões.
+
 ## Licença
 
 Este projeto é distribuído sob a licença CC BY-NC-SA 3.0, a mesma do projeto original.
