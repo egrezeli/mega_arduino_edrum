@@ -17,6 +17,7 @@ Este projeto é um fork melhorado do [md-python-config-tool](https://github.com/
 - Carregamento e salvamento automático de configurações
 - Sincronização bidirecional com o Arduino (recebe e envia configurações)
 - Botão para desabilitar todos os pinos de uma vez
+- Botão para resetar o monitor (limpar barras de progresso)
 - Tratamento de erros aprimorado
 - Feedback visual para operações de longa duração (agora os campos de configuração tem tooltip explicando suas funções)
 - Melhor organização do código e documentação
@@ -27,6 +28,8 @@ Este projeto é um fork melhorado do [md-python-config-tool](https://github.com/
 ![Função implementada na aba "Tool"](images/tool.png)
 - Painel informativo de nota MIDi enviada na aba monitor
 ![Painel informativo na aba "Monitor"](images/monitor.png)
+- Tooltips melhorados para os botões GET/SET explicando sua função
+- Caixas de diálogo informativas após operações importantes
 
 ## Requisitos
 
@@ -74,9 +77,14 @@ python main.py
 ### Funcionalidades principais:
 
 - **Desabilitar Todos**: Botão para definir todos os pinos como "Disabled"
-- **GetAll**: Solicita todos os parâmetros do pin selecionado do Arduino
-- **SetAll**: Envia todos os parâmetros do pin selecionado para o Arduino
-- **Save**: Salva as configurações na EEPROM do Arduino
+- **Resetar Monitor**: Botão para limpar todas as barras de progresso na aba Monitor
+- **GET ALL (↑)**: Solicita todos os parâmetros do pin selecionado do Arduino
+- **SET ALL (↓)**: Envia todos os parâmetros do pin selecionado para o Arduino
+- **Save**: Salva as configurações na EEPROM do Arduino (permanentes após reinicialização)
+
+## Configurações Especiais
+
+- **Configuração para Rufos**: Consulte [DRUM_TECHNIQUES.md](docs/DRUM_TECHNIQUES.md) para configurações otimizadas para técnicas avançadas
 
 ## Notas
 

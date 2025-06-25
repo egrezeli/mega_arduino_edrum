@@ -28,7 +28,11 @@ pins.ini
 
 # OS specific files
 .DS_Store
-Thumbs.dbdev_tools/
+Thumbs.db
+
+# Pasta de ferramentas de desenvolvimento
+dev_tools/
+
 # Arquivos de documentação específicos
 docs/MIDI_SETUP.md
 docs/QVECTOR_FIX.md

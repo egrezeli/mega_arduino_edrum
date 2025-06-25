@@ -187,6 +187,9 @@ class MainWindow ( QMainWindow ):
         # Adiciona o botão para desabilitar todos os pinos
         self.addDisableAllButton()
         
+        # Adiciona o botão para resetar o monitor
+        self.addResetMonitorButton()
+        
         # Adiciona informações sobre funcionalidades não testadas
         self.ui.rbFluidsynth.setText("To FluidSynth (não testado)")
         self.ui.rbSFZ.setText("To SFZ (não testado)")
@@ -202,8 +205,8 @@ class MainWindow ( QMainWindow ):
         self.configs_loaded_from_arduino = False
         
         # Adicionar tooltips aos botões principais
-        self.ui.pbUploadAll.setToolTip("↑ Solicita todos os parâmetros do pin selecionado do Arduino (receber do Arduino)")
-        self.ui.pbDownloadAll.setToolTip("↓ Envia todos os parâmetros do pin selecionado para o Arduino (enviar ao Arduino)")
+        self.ui.pbUploadAll.setToolTip("GET ALL (↑): Recebe todas as configurações do Arduino para a interface")
+        self.ui.pbDownloadAll.setToolTip("SET ALL (↓): Envia todas as configurações da interface para o Arduino")
         
         # Aumentar o tamanho dos botões de upload/download para mostrar as setas
         for btn in [self.ui.pbUploadType, self.ui.pbDownloadType, 
@@ -702,30 +705,30 @@ class MainWindow ( QMainWindow ):
     def add_button_tooltips(self):
         """Adiciona tooltips explicativos aos botões e campos da interface"""
         # Botões principais - Explicação das setas
-        self.ui.pbUploadType.setToolTip("↑ Solicitar tipo do Arduino (receber do Arduino)")
-        self.ui.pbDownloadType.setToolTip("↓ Enviar tipo para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadNote.setToolTip("↑ Solicitar nota MIDI do Arduino (receber do Arduino)")
-        self.ui.pbDownloadNote.setToolTip("↓ Enviar nota MIDI para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadThresold.setToolTip("↑ Solicitar threshold do Arduino (receber do Arduino)")
-        self.ui.pbDownloadThresold.setToolTip("↓ Enviar threshold para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadScantime.setToolTip("↑ Solicitar scantime do Arduino (receber do Arduino)")
-        self.ui.pbDownloadScantime.setToolTip("↓ Enviar scantime para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadMasktime.setToolTip("↑ Solicitar masktime do Arduino (receber do Arduino)")
-        self.ui.pbDownloadMasktime.setToolTip("↓ Enviar masktime para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadRetrigger.setToolTip("↑ Solicitar retrigger do Arduino (receber do Arduino)")
-        self.ui.pbDownloadRetrigger.setToolTip("↓ Enviar retrigger para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadCurve.setToolTip("↑ Solicitar curva do Arduino (receber do Arduino)")
-        self.ui.pbDownloadCurve.setToolTip("↓ Enviar curva para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadCurveform.setToolTip("↑ Solicitar forma da curva do Arduino (receber do Arduino)")
-        self.ui.pbDownloadCurveform.setToolTip("↓ Enviar forma da curva para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadXtalk.setToolTip("↑ Solicitar xtalk do Arduino (receber do Arduino)")
-        self.ui.pbDownloadXtalk.setToolTip("↓ Enviar xtalk para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadXtalkgroup.setToolTip("↑ Solicitar grupo xtalk do Arduino (receber do Arduino)")
-        self.ui.pbDownloadXtalkgroup.setToolTip("↓ Enviar grupo xtalk para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadChannel.setToolTip("↑ Solicitar canal do Arduino (receber do Arduino)")
-        self.ui.pbDownloadChannel.setToolTip("↓ Enviar canal para o Arduino (enviar ao Arduino)")
-        self.ui.pbUploadGain.setToolTip("↑ Solicitar ganho do Arduino (receber do Arduino)")
-        self.ui.pbDownloadGain.setToolTip("↓ Enviar ganho para o Arduino (enviar ao Arduino)")
+        self.ui.pbUploadType.setToolTip("GET (↑): Receber tipo do Arduino")
+        self.ui.pbDownloadType.setToolTip("SET (↓): Enviar tipo para o Arduino")
+        self.ui.pbUploadNote.setToolTip("GET (↑): Receber nota MIDI do Arduino")
+        self.ui.pbDownloadNote.setToolTip("SET (↓): Enviar nota MIDI para o Arduino")
+        self.ui.pbUploadThresold.setToolTip("GET (↑): Receber threshold do Arduino")
+        self.ui.pbDownloadThresold.setToolTip("SET (↓): Enviar threshold para o Arduino")
+        self.ui.pbUploadScantime.setToolTip("GET (↑): Receber scantime do Arduino")
+        self.ui.pbDownloadScantime.setToolTip("SET (↓): Enviar scantime para o Arduino")
+        self.ui.pbUploadMasktime.setToolTip("GET (↑): Receber masktime do Arduino")
+        self.ui.pbDownloadMasktime.setToolTip("SET (↓): Enviar masktime para o Arduino")
+        self.ui.pbUploadRetrigger.setToolTip("GET (↑): Receber retrigger do Arduino")
+        self.ui.pbDownloadRetrigger.setToolTip("SET (↓): Enviar retrigger para o Arduino")
+        self.ui.pbUploadCurve.setToolTip("GET (↑): Receber curva do Arduino")
+        self.ui.pbDownloadCurve.setToolTip("SET (↓): Enviar curva para o Arduino")
+        self.ui.pbUploadCurveform.setToolTip("GET (↑): Receber forma da curva do Arduino")
+        self.ui.pbDownloadCurveform.setToolTip("SET (↓): Enviar forma da curva para o Arduino")
+        self.ui.pbUploadXtalk.setToolTip("GET (↑): Receber xtalk do Arduino")
+        self.ui.pbDownloadXtalk.setToolTip("SET (↓): Enviar xtalk para o Arduino")
+        self.ui.pbUploadXtalkgroup.setToolTip("GET (↑): Receber grupo xtalk do Arduino")
+        self.ui.pbDownloadXtalkgroup.setToolTip("SET (↓): Enviar grupo xtalk para o Arduino")
+        self.ui.pbUploadChannel.setToolTip("GET (↑): Receber canal do Arduino")
+        self.ui.pbDownloadChannel.setToolTip("SET (↓): Enviar canal para o Arduino")
+        self.ui.pbUploadGain.setToolTip("GET (↑): Receber ganho do Arduino")
+        self.ui.pbDownloadGain.setToolTip("SET (↓): Enviar ganho para o Arduino")
         
         # Checkbox
         self.ui.ckSave.setToolTip("Salvar configurações na EEPROM do Arduino")
@@ -777,8 +780,8 @@ class MainWindow ( QMainWindow ):
         self.ui.spChannel.setToolTip("Canal MIDI - Canal em que as mensagens MIDI deste pad serão enviadas (0-15)")
         
         # Botões principais
-        self.ui.pbUploadAll.setToolTip("↑ Solicita todos os parâmetros do pin selecionado do Arduino (receber do Arduino)")
-        self.ui.pbDownloadAll.setToolTip("↓ Envia todos os parâmetros do pin selecionado para o Arduino (enviar ao Arduino)")
+        self.ui.pbUploadAll.setToolTip("GET ALL (↑): Recebe todas as configurações do Arduino para a interface")
+        self.ui.pbDownloadAll.setToolTip("SET ALL (↓): Envia todas as configurações da interface para o Arduino")
     def setup_about_tab(self):
         """Configura a aba About com informações sobre o software"""
         # Remover qualquer layout existente
@@ -832,6 +835,11 @@ class MainWindow ( QMainWindow ):
         description.setAlignment(Qt.AlignCenter)
         description.setStyleSheet("margin: 20px; font-size: 12pt;")
         
+        # Adicionar botão de ajuda
+        help_button = QtWidgets.QPushButton("Ajuda sobre os Botões")
+        help_button.setStyleSheet("font-size: 12pt; padding: 8px;")
+        help_button.clicked.connect(self.show_help_buttons)
+        
         # Informações de copyright e fork
         copyright_text = (
             "<p>Este programa é um fork do software original criado por Massimo Bernava.</p>"
@@ -858,6 +866,7 @@ class MainWindow ( QMainWindow ):
         scroll_layout.addWidget(logo_label)
         scroll_layout.addWidget(version_label)
         scroll_layout.addWidget(description)
+        scroll_layout.addWidget(help_button)
         scroll_layout.addWidget(copyright_label)
         scroll_layout.addWidget(author_label)
         scroll_layout.addStretch(1)  # Espaço flexível no final
@@ -867,6 +876,65 @@ class MainWindow ( QMainWindow ):
         
         # Adiciona a área de rolagem ao layout principal
         about_layout.addWidget(scroll_area)
+        
+    def show_help_buttons(self):
+        """Mostra a ajuda sobre os botões"""
+        help_file = "help_buttons.md"
+        help_text = ""
+        
+        try:
+            with open(help_file, "r") as f:
+                help_text = f.read()
+        except:
+            help_text = """
+# Guia de Botões do Mega Arduino eDrum
+
+## Botões Principais
+
+### GET ALL (↑)
+- **Função**: Recebe todas as configurações do pad selecionado do Arduino para a interface
+- **Quando usar**: Para ver as configurações atuais armazenadas no Arduino
+- **Direção do fluxo de dados**: Arduino → Interface
+
+### SET ALL (↓)
+- **Função**: Envia todas as configurações do pad selecionado da interface para o Arduino
+- **Quando usar**: Após modificar configurações na interface e querer aplicá-las ao Arduino
+- **Direção do fluxo de dados**: Interface → Arduino
+
+## Botões Individuais
+
+Cada parâmetro tem dois botões associados:
+
+### Botões GET (↑)
+- **Função**: Recebem um parâmetro específico do Arduino para a interface
+- **Exemplo**: O botão GET para "Type" recebe apenas o tipo do pad do Arduino
+
+### Botões SET (↓)
+- **Função**: Enviam um parâmetro específico da interface para o Arduino
+- **Exemplo**: O botão SET para "Note" envia apenas a nota MIDI para o Arduino
+"""
+        
+        # Criar uma caixa de diálogo para mostrar a ajuda
+        help_dialog = QtWidgets.QDialog(self)
+        help_dialog.setWindowTitle("Ajuda sobre os Botões")
+        help_dialog.setMinimumSize(600, 500)
+        
+        layout = QtWidgets.QVBoxLayout(help_dialog)
+        
+        # Texto de ajuda
+        help_text_edit = QtWidgets.QTextEdit()
+        help_text_edit.setReadOnly(True)
+        help_text_edit.setMarkdown(help_text)
+        help_text_edit.setStyleSheet("font-size: 12pt;")
+        
+        # Botão de fechar
+        close_button = QtWidgets.QPushButton("Fechar")
+        close_button.clicked.connect(help_dialog.accept)
+        
+        layout.addWidget(help_text_edit)
+        layout.addWidget(close_button)
+        
+        help_dialog.exec_()
     def handle_logMessage(self, message):
         """Manipula mensagens de log e as exibe no widget de log"""
         self.ui.logOutput.append(message)
@@ -1121,20 +1189,47 @@ class MainWindow ( QMainWindow ):
     def uploadAll(self):
         """Solicita todos os parâmetros do pin atual do Arduino (Get All)"""
         pin_num = self.ui.tPinList.currentRow()
-        self.log(f"Solicitando todos os parâmetros do pin {pin_num} do Arduino...")
+        pin_name = self.pins[pin_num].name.decode()
+        self.log(f"Solicitando todos os parâmetros do pin {pin_num} ({pin_name}) do Arduino...")
         data = 0xF0,0x77,0x02,pin_num,0x7F,0x00,0xF7
         print(data)
         txData = struct.pack("B"*len(data), *data)
         if hasattr(self, 'ser') and self.ser.isOpen():
             self.ser.write(txData)
             self.log(f"Comando Get All enviado para o pin {pin_num}")
+            
+            # Mostrar caixa informativa
+            QtWidgets.QMessageBox.information(
+                self, 
+                'GET ALL - Recebendo configurações',
+                f'Solicitando todas as configurações do pad "{pin_name}" do Arduino.\n\n'
+                f'As configurações serão atualizadas na interface quando forem recebidas.',
+                QtWidgets.QMessageBox.Ok
+            )
         else:
             self.log("Erro: Porta serial não está aberta")
+            QtWidgets.QMessageBox.warning(
+                self, 
+                'Erro de Conexão',
+                'A porta serial não está aberta. Conecte o Arduino primeiro.',
+                QtWidgets.QMessageBox.Ok
+            )
             
     def downloadAll(self):
         """Envia todos os parâmetros do pin atual para o Arduino (Set All)"""
         pin_num = self.ui.tPinList.currentRow()
-        self.log(f"Enviando todos os parâmetros do pin {pin_num} para o Arduino...")
+        pin_name = self.pins[pin_num].name.decode()
+        self.log(f"Enviando todos os parâmetros do pin {pin_num} ({pin_name}) para o Arduino...")
+        
+        if not hasattr(self, 'ser') or not self.ser.isOpen():
+            self.log("Erro: Porta serial não está aberta")
+            QtWidgets.QMessageBox.warning(
+                self, 
+                'Erro de Conexão',
+                'A porta serial não está aberta. Conecte o Arduino primeiro.',
+                QtWidgets.QMessageBox.Ok
+            )
+            return
         
         # Envia os parâmetros um por um
         self.downloadType()
@@ -1163,6 +1258,18 @@ class MainWindow ( QMainWindow ):
         self.save_pins_to_file()
         
         self.log(f"Todos os parâmetros do pin {pin_num} foram enviados com sucesso")
+        
+        # Mostrar caixa informativa
+        QtWidgets.QMessageBox.information(
+            self, 
+            'SET ALL - Configurações Enviadas',
+            f'Todas as configurações do pad "{pin_name}" foram enviadas com sucesso para o Arduino.\n\n'
+            f'Tipo: {self.pinType.get(self.pins[pin_num].type, "Desconhecido")}\n'
+            f'Nota MIDI: {self.getNoteString(self.pins[pin_num].note)}\n'
+            f'Threshold: {self.pins[pin_num].thresold}\n'
+            f'Gain: {self.pins[pin_num].gain}',
+            QtWidgets.QMessageBox.Ok
+        )
     def uploadType(self):
         """Solicita o tipo do pin atual do Arduino"""
         pin_num = self.ui.tPinList.currentRow()
@@ -1400,10 +1507,16 @@ class MainWindow ( QMainWindow ):
         if self.ser.isOpen():
             self.ser.write(txData)
     def handle_updateMonitor(self, data1, data2, data3):
+        # Atualiza apenas o pad que corresponde à nota MIDI recebida
+        # e apenas se o tipo do pad não for Disabled
         for i in range(0, len(self.pbPinArray)):
-            if self.pins[i].note==data2:
+            if self.pins[i].note==data2 and self.pins[i].type != 15 and self.pins[i].type != 127:
                 self.pbPinArray[i].setFormat("    "+self.pins[i].name.decode()+" %v    ")
                 self.pbPinArray[i].setValue(data3)
+            else:
+                # Garante que os pads desabilitados tenham valor zero
+                if self.pins[i].type == 15 or self.pins[i].type == 127:
+                    self.pbPinArray[i].setValue(0)
             
         if (data1&0xF0)==0x90:
             message = "NOTE ON ("+str(data2)+","+str(data3)+")"
@@ -1457,11 +1570,15 @@ class MainWindow ( QMainWindow ):
             self.ui.tPinList.setCurrentCell(0, 0)
             self.selectPin()
             
+            # Reseta as barras de progresso no monitor
+            for i in range(len(self.pbPinArray)):
+                self.pbPinArray[i].setValue(0)
+            
             self.log("Todos os pinos foram desabilitados com sucesso")
             QtWidgets.QMessageBox.information(
                 self, 
                 'Operação concluída',
-                'Todos os pinos foram desabilitados com sucesso.',
+                'Todos os pinos foram desabilitados com sucesso.\nAs barras de progresso no Monitor também foram resetadas.',
                 QtWidgets.QMessageBox.Ok
             )
     def addDisableAllButton(self):
@@ -1474,3 +1591,30 @@ class MainWindow ( QMainWindow ):
         
         # Conecta o botão à função disableAllPins
         self.ui.btnDisableAll.clicked.connect(self.disableAllPins)
+        
+    def addResetMonitorButton(self):
+        """Adiciona o botão para resetar as barras de progresso na aba Monitor"""
+        # Cria o botão na aba Monitor
+        self.ui.btnResetMonitor = QtWidgets.QPushButton(self.ui.tab_3)
+        self.ui.btnResetMonitor.setGeometry(600, 10, 130, 22)
+        self.ui.btnResetMonitor.setText("Resetar Monitor")
+        self.ui.btnResetMonitor.setToolTip("Reseta todas as barras de progresso")
+        
+        # Conecta o botão à função resetMonitor
+        self.ui.btnResetMonitor.clicked.connect(self.resetMonitor)
+        
+    def resetMonitor(self):
+        """Reseta todas as barras de progresso na aba Monitor"""
+        # Reseta todas as barras
+        for i in range(len(self.pbPinArray)):
+            self.pbPinArray[i].setValue(0)
+            
+        self.log("Monitor resetado - todas as barras de progresso foram zeradas")
+        
+        # Mostra mensagem de confirmação
+        QtWidgets.QMessageBox.information(
+            self, 
+            'Monitor Resetado',
+            'Todas as barras de progresso foram zeradas.',
+            QtWidgets.QMessageBox.Ok
+        )
